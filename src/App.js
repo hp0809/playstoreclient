@@ -7,7 +7,7 @@ class App extends React.Component {
     this.state = {
       apps: [],
       sort: '',
-      genre: '',
+      genres: '',
       error: null
     }
   }
@@ -18,9 +18,9 @@ class App extends React.Component {
     });
   }
 
-  setGenre(genre) {
+  setGenre(genres) {
     this.setState({
-      genre
+      genres
     });
   }
 
@@ -32,8 +32,8 @@ class App extends React.Component {
     if(this.state.sort) {
       params.push(`sort=${this.state.sort}`);
     }
-    if(this.state.genre) {
-      params.push(`genre=${this.state.genre}`)
+    if(this.state.genres) {
+      params.push(`genres=${this.state.genres}`)
     }
     const query = params.join('&');
     const url = `${baseUrl}?${query}`;
@@ -71,12 +71,12 @@ class App extends React.Component {
             <label htmlFor='sort'>Sort by: </label>
             <select id='sort' name='sort' onChange={e => this.setSort(e.target.value)}>
               <option value=''>None</option>
-              <option value='rating'>Rating</option>
-              <option value='app'>App</option>
+              <option value='Rating'>Rating</option>
+              <option value='App'>App</option>
             </select>
 
-            <label htmlFor='genre'>Select a genre: </label>
-            <select id='genre' name='genre' onChange={e => this.setGenre(e.target.value)}>
+            <label htmlFor='Genres'>Select a genre: </label>
+            <select id='Genres' name='Genres' onChange={e => this.setGenre(e.target.value)}>
               <option value=''>None</option>
               <option value='Action'>Action</option>
               <option value='Puzzle'>Puzzle</option>
